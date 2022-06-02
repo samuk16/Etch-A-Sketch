@@ -1,0 +1,26 @@
+
+.divs{
+    
+    background-color: blueviolet;
+    outline-style: solid;
+    max-width: 16px;
+    width: 16px;
+    max-height: 16px;
+    height: 16px;
+}
+
+.containerGrid{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+   width: 500px;
+}
+.divs2{
+    background-color: aquamarine;
+    border-style: solid;
+    max-width: 16px;
+    width: 16px;
+    max-height: 16px;
+    height: 16px;
+}
