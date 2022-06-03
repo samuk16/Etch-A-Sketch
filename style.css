@@ -1,26 +1,30 @@
-
+:root{
+    --pixels: 16;
+    --colorBackDiv:#fff;
+    --colorDiv:#000;
+}
 .divs{
     
-    background-color: blueviolet;
+    background-color: var(--colorBackDiv);
+    width: calc(100% / var(--pixels));
     outline-style: solid;
-    max-width: 16px;
-    width: 16px;
-    max-height: 16px;
-    height: 16px;
+    outline-width: .5px;
+}
+/*
+.divs:hover{
+    background-color: aqua;
+}
+*/
+.divColorHover{
+    background-color: var(--colorDiv);
 }
 
 .containerGrid{
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    align-items: center;
-   width: 500px;
-}
-.divs2{
-    background-color: aquamarine;
-    border-style: solid;
-    max-width: 16px;
-    width: 16px;
-    max-height: 16px;
-    height: 16px;
+    margin: auto;
+    max-width: 600px;
+    width: 600px;
+    max-height: 600px;
+    height: 600px;
 }
