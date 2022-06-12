@@ -1,25 +1,36 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
+    <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-A-Sketch</title>
     <link rel="stylesheet" href="style.css">
     <script src="/script.js" defer ></script>
-</head>
-<body>
-    <div class="containerGrid nashe">
+    </head>
+    <body>
+        <div class="containerGrid nashe"></div>
 
-    </div>
-    <input class="input" type="range" min="16" max="64" step="1" name="pixels" value="16">
-    <input type="color" name="colorBackDiv" class="inputColor">
-    <input type="color" name="colorDiv" class="inputColorDiv">
+        <input class="input" type="range" min="16" max="64" step="1" name="pixels" value="16">
 
-    <label class="switch">
-        <input type="checkbox" class="checkBox" value="nashe">
-        <span class="slider round"></span>
-      </label>
-  
-</body>
+        <div class="pruebaInput">
+            <input type="color" name="colorBackDiv" class="inputColor">
+        </div>
+        <input type="color" name="colorDiv" class="inputColorDiv" value="#000000">
+
+    
+       <div class="containerBtn">
+
+            <button class="btnColorMode btn" value="colorMode">Color Mode</button>
+
+            <button class="btnRainbowMode btn" value="rainbowMode">Rainbow Mode</button>
+
+            <button class="btnEraser btn" value="eraser">Eraser</button>
+
+            <button class="btnClear btn" value="clear">Clear</button>
+
+            <button class="btnGrid btn">Grid</button>
+
+       </div>
+    </body>
 </html>

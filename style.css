@@ -2,25 +2,43 @@
     --pixels: 16;
     --colorBackDiv:#fff;
     --colorDiv:#000;
+    --outlineWid: ;
 }
 .divs{
     
     background-color: var(--colorBackDiv);
     width: calc(100% / var(--pixels));
-    outline-style: solid;
+    outline-style: none;
+    
+}
+.grid{
+  outline-style: solid;
     outline-width: .5px;
 }
-
-/*
-.divs:hover{
-    background-color: aqua;
+body{
+  background-color: #1E2142;
 }
-*/
+
 .divColorHover{
     background-color: var(--colorDiv);
     
 }
+/*
+.inputColor{
+ opacity: 0;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+}
 
+
+.pruebaInput{
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background-color: #000;
+}
+*/
 .containerGrid{
     display: flex;
     flex-wrap: wrap;
