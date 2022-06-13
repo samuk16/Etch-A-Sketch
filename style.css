@@ -9,7 +9,7 @@
     background-color: var(--colorBackDiv);
     width: calc(100% / var(--pixels));
     outline-style: none;
-    
+    user-select: none;
 }
 .grid{
   outline-style: solid;
@@ -23,6 +23,8 @@ body{
     background-color: var(--colorDiv);
     
 }
+
+
 /*
 .inputColor{
  opacity: 0;

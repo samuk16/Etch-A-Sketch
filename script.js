@@ -58,8 +58,9 @@ const inputColorDiv = document.querySelectorAll('.inputColorDiv');
 inputColorBack.forEach(div => div.addEventListener('change', changeColorBack));
 
 function changeColorBack(){
-    colorBack = this.value;
+    colorBack =  this.value;
     document.documentElement.style.setProperty(`--${this.name}`,this.value);
+    console.log(colorBack);
 }
 
 
@@ -168,55 +169,76 @@ const colorModeBtn = document.querySelector('.btnColorMode');
 const rainbowModeBtn = document.querySelector('.btnRainbowMode');
 const eraserBtn = document.querySelector('.btnEraser');
 const gridbtn = document.querySelector('btnGrid');
+const divprueba = document.querySelectorAll('.nashe');
 
 
+let drawing = false;
 
 console.log(btns);
+
+
+containerGrid.addEventListener('mousedown', function(e){
+    drawing = true;
+})
+containerGrid.addEventListener('mouseup', () => {
+    drawing = false;
+});
 
 btns.addEventListener('click', e =>{
 
     if(e.target.classList.contains('btnColorMode')){
 
-        containerGrid.addEventListener('mousedown', function(e){
-        
+        containerGrid.addEventListener('mousemove', e => {
+
+            if(drawing === true){
                 divTaget = e.target;
                 divTaget.style.backgroundColor = color;
-                console.log('colorMode');
+                
+            }
             
-
-        })
-
+        });
+        
     }else if(e.target.classList.contains('btnRainbowMode')){
+       
+        containerGrid.addEventListener('mousemove', e => {
 
-        containerGrid.addEventListener('mousedown', function(e){
+            if(drawing === true){
+                const divTarget2 = e.target;
+                let simbols = '0123456789ABCDEF';
+                let colorHex='#';
 
-        const divTarget2 = e.target;
-        let simbols = '0123456789ABCDEF';
-        let colorHex='#';
-
-        for(let i = 0;i < 6; i++){
-            colorHex = colorHex + simbols[Math.floor(Math.random()* 16)];
+                for(let i = 0;i < 6; i++){
+                colorHex = colorHex + simbols[Math.floor(Math.random()* 16)];
             
-        }
+            }
 
-        divTarget2.style.backgroundColor = colorHex;
-        console.log('rainbowMode');
-
-        })
+            divTarget2.style.backgroundColor = colorHex;
+           
+            }
+            
+        });
 
     }else if(e.target.classList.contains('btnEraser')){
 
-        containerGrid.addEventListener('mousedown', function(e){
-            
-            divTaget3 = e.target;
-            divTaget3.style.backgroundColor = colorBack;
+        containerGrid.addEventListener('mousemove', e => {
 
-            console.log('eraser');
-        })
+            if(drawing === true){
+                divTaget3 = e.target;
+                divTaget3.style.backgroundColor = colorBack;
+            }
+            
+        });
+
     }else if(e.target.classList.contains('btnClear')){
 
-        changeColorBack();
+        // divprueba.forEach( div => div.style.backgroundColor = colorBack)
+        document.documentElement.style.setProperty(`--colorBackDiv`,'#d61f1f');
+
         console.log('clear');
+
+
+        //  los divs a los que se pintan se les agrega una propiedad en el html de style fijarse si se puede borrar de alguna manera tratar de hacer algo con .setProperty()
+        // otra forma tambien de hacer clear podria ser creando nuevos divs otra vez, como cuando cambias de size y se borra todo 
 
     }else if(e.target.classList.contains('btnGrid')){
 
@@ -225,35 +247,8 @@ btns.addEventListener('click', e =>{
 
 
     e.stopPropagation();
-   /*
-    switch (e.target.classList.contains('')) {
-        case 'colorMode':
-            containerGrid.addEventListener('mousemove', function(e){
-                let divTaget = e.target;
-                divTaget.style.backgroundColor = color;
-            })
-        break;
-        
-        case 'rainbowMode':
-            containerGrid.addEventListener('mouseover', function(e){
-                randomColor();
-                let divTarget2 = e.target;
-                
-                divTarget2.style.backgroundColor = colorR;
-            })
-        break;
-
-        case 'eraser':
-            containerGrid.addEventListener('mousemove', function(e){
-                let divTaget3 = e.target;
-                divTaget3.style.backgroundColor = colorBack;
-            })
-        break;
-
-        default:
-            console.log('nashe');
-    }
-    */
+    
+    
 } );
 
 
