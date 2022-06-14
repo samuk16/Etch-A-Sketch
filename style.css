@@ -2,21 +2,24 @@
     --pixels: 16;
     --colorBackDiv:#fff;
     --colorDiv:#000;
-    --outlineWid: ;
+    --outlineWid:.5px ;
+    --outlineSty: solid;
 }
 .divs{
     
     background-color: var(--colorBackDiv);
     width: calc(100% / var(--pixels));
-    outline-style: none;
+    /* outline-style: var(--outlineSty); */
+    /* outline-width: var(--outlineWid); */
     user-select: none;
 }
 .grid{
-  outline-style: solid;
-    outline-width: .5px;
+  outline-style: var(--outlineSty);
+    outline-width: var(--outlineWid);
 }
 body{
   background-color: #1E2142;
+  
 }
 
 .divColorHover{

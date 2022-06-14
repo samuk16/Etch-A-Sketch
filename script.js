@@ -1,7 +1,7 @@
 const containerGrid = document.querySelector('.containerGrid');
 const inputRange = document.querySelectorAll('.input');
 
-let valueGrid ;
+let valueGrid = 16 ;
 let div =[] ;
 
 
@@ -11,6 +11,7 @@ function divsFirst(){
     for(let i = 0; i <= 255;i++){
         div = document.createElement('div');
         div.classList.add('divs');
+        div.classList.add('grid');
         div.setAttribute('name', 'nashe');
         containerGrid.appendChild(div);
 
@@ -32,12 +33,13 @@ function genGrid(){
     for(let i = 0; i <= nashe;i++){
         div = document.createElement('div');
         div.classList.add('divs');
+        div.classList.add('grid');
         div.setAttribute('name', 'nashe');
         containerGrid.appendChild(div);
         
     }
         
-    
+    console.log(valueGrid)
 }
 
 inputRange.forEach(input => input.addEventListener('change', genGrid));
@@ -169,13 +171,11 @@ const colorModeBtn = document.querySelector('.btnColorMode');
 const rainbowModeBtn = document.querySelector('.btnRainbowMode');
 const eraserBtn = document.querySelector('.btnEraser');
 const gridbtn = document.querySelector('btnGrid');
-const divprueba = document.querySelectorAll('.nashe');
+
+
 
 
 let drawing = false;
-
-console.log(btns);
-
 
 containerGrid.addEventListener('mousedown', function(e){
     drawing = true;
@@ -184,6 +184,7 @@ containerGrid.addEventListener('mouseup', () => {
     drawing = false;
 });
 
+
 btns.addEventListener('click', e =>{
 
     if(e.target.classList.contains('btnColorMode')){
@@ -191,14 +192,24 @@ btns.addEventListener('click', e =>{
         containerGrid.addEventListener('mousemove', e => {
 
             if(drawing === true){
-                divTaget = e.target;
-                divTaget.style.backgroundColor = color;
-                
+                divTarget = e.target;
+                divTarget.style.backgroundColor = color;
+                divTarget.classList.add('prueba');
             }
             
         });
         
+        containerGrid.addEventListener('click', e => {
+
+            divTarget = e.target;
+            divTarget.style.backgroundColor = color;
+            divTarget.classList.add('prueba');
+            
+        });
+
+
     }else if(e.target.classList.contains('btnRainbowMode')){
+
        
         containerGrid.addEventListener('mousemove', e => {
 
@@ -210,78 +221,94 @@ btns.addEventListener('click', e =>{
                 for(let i = 0;i < 6; i++){
                 colorHex = colorHex + simbols[Math.floor(Math.random()* 16)];
             
-            }
+                }
 
-            divTarget2.style.backgroundColor = colorHex;
-           
+                divTarget2.style.backgroundColor = colorHex;
+            
             }
             
         });
 
+
+        containerGrid.addEventListener('click', e => {
+
+            const divTarget2 = e.target;
+            let simbols = '0123456789ABCDEF';
+            let colorHex='#';
+
+            for(let i = 0;i < 6; i++){
+
+            colorHex = colorHex + simbols[Math.floor(Math.random()* 16)];
+            
+            divTarget2.style.backgroundColor = colorHex;
+            
+            }
+            
+        });
+        
+
     }else if(e.target.classList.contains('btnEraser')){
+
 
         containerGrid.addEventListener('mousemove', e => {
 
             if(drawing === true){
-                divTaget3 = e.target;
-                divTaget3.style.backgroundColor = colorBack;
+                divTarget3 = e.target;
+                divTarget3.style.backgroundColor = colorBack;
+                
             }
             
         });
 
+        containerGrid.addEventListener('click', e => {
+
+                divTarget3 = e.target;
+                divTarget3.style.backgroundColor = colorBack;
+              
+        });
+
+
     }else if(e.target.classList.contains('btnClear')){
 
-        // divprueba.forEach( div => div.style.backgroundColor = colorBack)
-        document.documentElement.style.setProperty(`--colorBackDiv`,'#d61f1f');
-
-        console.log('clear');
-
-
-        //  los divs a los que se pintan se les agrega una propiedad en el html de style fijarse si se puede borrar de alguna manera tratar de hacer algo con .setProperty()
-        // otra forma tambien de hacer clear podria ser creando nuevos divs otra vez, como cuando cambias de size y se borra todo 
+        
+        while (containerGrid.firstChild) {
+            containerGrid.removeChild(containerGrid.firstChild);
+          }
+        document.documentElement.style.setProperty(`--pixels`,valueGrid);
+        
+        
+        let nashe = (Math.pow(valueGrid,2)) - 1;
+    
+        for(let i = 0; i <= nashe;i++){
+            div = document.createElement('div');
+            div.classList.add('divs');
+            div.classList.add('grid');
+            div.setAttribute('name', 'nashe');
+            containerGrid.appendChild(div);
+            
+        }
+        
+       
 
     }else if(e.target.classList.contains('btnGrid')){
 
-        
+            
+            document.documentElement.style.setProperty('--outlineWid', '.5px');
+            document.documentElement.style.setProperty('--outlineSty', 'solid');
+            
+            
+    }else if(e.target.classList.contains('btnNoGrid')){
+
+
+        document.documentElement.style.setProperty('--outlineWid', 0);
+        document.documentElement.style.setProperty('--outlineSty', 'none');
+
     }
 
 
     e.stopPropagation();
     
     
-} );
-
-
-/*
-colorModeBtn.addEventListener('click', e => {
-
-
-
-    
-    containerGrid.addEventListener('mousemove', function(e){
-        let divTaget = e.target;
-        divTaget.style.backgroundColor = color;
-        console.log('colormode');
-        
-    })
-    e.stopPropagation();
 });
-const pruebanashe = document.querySelector('.nashe');
-rainbowModeBtn.addEventListener('click', e => {
 
 
-
-    
-    containerGrid.addEventListener('mouseover', function(e){
-        randomColor();
-        let divTarget2 = e.target;
-        
-        divTarget2.style.backgroundColor = colorR;
-        console.log('rainbow');
-        
-    })
-    
-    e.stopPropagation();
-} );
-
-*/
