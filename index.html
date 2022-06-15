@@ -1,37 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Etch-A-Sketch</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="/script.js" defer ></script>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Etch-A-Sketch</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="/script.js" defer ></script>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap" rel="stylesheet">
     </head>
+
     <body>
-        <div class="containerGrid nashe"></div>
 
-        <input class="input" type="range" min="16" max="64" step="1" name="pixels" value="16">
 
-        <div class="pruebaInput">
-            <input type="color" name="colorBackDiv" class="inputColor">
+        <div class="containerMain">
+            
+            <h1 class="title ">Etch-A-Sketch</h1>
+            
+            <div class="containerGridColors">
+
+                <div class="containerInputs">
+
+                    <div class="styleInputColors styleInputColorDiv">
+                    
+                        <input class="inputColor inputColorDiv" type="color" name="colorDiv" value="#000000">
+                    
+                        
+                    </div>
+                    <p class="text textContInputs">Color</p>
+                        <svg width="100" height="5" viewBox="0 0 100 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="2.5" y1="2.5" x2="97.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                </div>
+
+
+                <div class="containerGrid nashe"></div>
+
+                <div class="containerInputs">
+
+                
+                    <div class="styleInputColors styleInputColorBack">
+
+                        <input class="inputColor inputColorBack" type="color" name="colorBackDiv" >
+                    
+                        
+                    </div>
+                    <p class="text textContInputs">Backgound</p>
+                        <svg width="100" height="5" viewBox="0 0 100 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <line x1="2.5" y1="2.5" x2="97.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                        </svg>
+                </div>
+
+            </div>
+
+
+            <div class="inputSize">
+
+                <input class="sizeGrid inputRange" type="range" min="16" max="64" step="1" name="pixels" value="16">
+
+            </div>
+
+
+            <div class="containerBtn" >
+
+                <div class="btnMiniContainer">
+                    <button class="btnColorMode btn text transitionBtn" value="colorMode">Color Mode</button>
+                    <svg width="200" height="5" class="transitionBtn" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2.5" y1="2.5" x2="197.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                        
+                </div>
+                <div class="btnMiniContainer">
+                    <button class="btnRainbowMode btn text transitionBtn" value="rainbowMode">Rainbow Mode</button>
+                    <svg width="200" height="5" class="transitionBtn" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2.5" y1="2.5" x2="197.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                        
+                </div>
+
+                <div class="btnMiniContainer">
+                    <button class="btnEraser btn text transitionBtn" value="eraser">Eraser</button>
+                    <svg width="200" height="5" class="transitionBtn" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2.5" y1="2.5" x2="197.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                        
+                </div>
+
+                <div class="btnMiniContainer">
+                    <button class="btnClear btn text transitionBtn" value="clear">Clear</button>
+                    <svg width="200" height="5" class="transitionBtn" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2.5" y1="2.5" x2="197.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                        
+                </div>
+
+                <div class="btnMiniContainer">
+                    <button class="btnGrid btn text transitionBtn">Grid</button>
+                    <svg width="200" height="5" class="transitionBtn" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2.5" y1="2.5" x2="197.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                        
+                </div>
+
+                <div class="btnMiniContainer">
+                    <button class="btnNoGrid btn text transitionBtn">No Grid</button>
+                    <svg width="200" height="5" class="transitionBtn" viewBox="0 0 200 5" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="2.5" y1="2.5" x2="197.5" y2="2.5" stroke="#C06C84" stroke-width="5" stroke-linecap="round"/>
+                    </svg>
+                        
+                </div>
+            </div>
         </div>
-        <input type="color" name="colorDiv" class="inputColorDiv" value="#000000">
-
-    
-       <div class="containerBtn" >
-
-            <button class="btnColorMode btn" value="colorMode">Color Mode</button>
-
-            <button class="btnRainbowMode btn" value="rainbowMode">Rainbow Mode</button>
-
-            <button class="btnEraser btn" value="eraser">Eraser</button>
-
-            <button class="btnClear btn" value="clear">Clear</button>
-
-            <button class="btnGrid btn">Grid</button>
-            <button class="btnNoGrid btn">No Grid</button>
-       </div>
        
     </body>
 </html>

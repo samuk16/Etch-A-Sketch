@@ -1,5 +1,5 @@
 const containerGrid = document.querySelector('.containerGrid');
-const inputRange = document.querySelectorAll('.input');
+const inputRange = document.querySelectorAll('.inputRange');
 
 let valueGrid = 16 ;
 let div =[] ;
@@ -12,7 +12,7 @@ function divsFirst(){
         div = document.createElement('div');
         div.classList.add('divs');
         div.classList.add('grid');
-        div.setAttribute('name', 'nashe');
+        
         containerGrid.appendChild(div);
 
     }
@@ -34,7 +34,7 @@ function genGrid(){
         div = document.createElement('div');
         div.classList.add('divs');
         div.classList.add('grid');
-        div.setAttribute('name', 'nashe');
+        
         containerGrid.appendChild(div);
         
     }
@@ -49,7 +49,7 @@ inputRange.forEach(input => input.addEventListener('change', genGrid));
 
 let color ;
 let colorBack;
-const inputColorBack = document.querySelectorAll('.inputColor');
+const inputColorBack = document.querySelectorAll('.inputColorBack');
 
 const divsColor = document.querySelectorAll('.divs');
 
@@ -194,7 +194,7 @@ btns.addEventListener('click', e =>{
             if(drawing === true){
                 divTarget = e.target;
                 divTarget.style.backgroundColor = color;
-                divTarget.classList.add('prueba');
+                
             }
             
         });
@@ -203,10 +203,10 @@ btns.addEventListener('click', e =>{
 
             divTarget = e.target;
             divTarget.style.backgroundColor = color;
-            divTarget.classList.add('prueba');
+            
             
         });
-
+        
 
     }else if(e.target.classList.contains('btnRainbowMode')){
 
@@ -246,7 +246,7 @@ btns.addEventListener('click', e =>{
             
         });
         
-
+        
     }else if(e.target.classList.contains('btnEraser')){
 
 
@@ -267,7 +267,7 @@ btns.addEventListener('click', e =>{
               
         });
 
-
+        
     }else if(e.target.classList.contains('btnClear')){
 
         
@@ -283,13 +283,12 @@ btns.addEventListener('click', e =>{
             div = document.createElement('div');
             div.classList.add('divs');
             div.classList.add('grid');
-            div.setAttribute('name', 'nashe');
             containerGrid.appendChild(div);
             
         }
         
        
-
+        console.log('clear');
     }else if(e.target.classList.contains('btnGrid')){
 
             
