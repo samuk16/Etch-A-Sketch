@@ -47,13 +47,18 @@ function genGrid(){
     }
         
     
-    textSizeGrid.textContent= `${valueGrid} x ${valueGrid}`;
+   
 }
 
 inputRange.forEach(input => input.addEventListener('change', genGrid));
 
+const sizeGridText = document.querySelector('.sizeGrid');
 
+sizeGridText.addEventListener('input', displaySize)
 
+function displaySize(){
+    textSizeGrid.textContent =`${sizeGridText.value} x ${sizeGridText.value}`;
+}
 
 // -----------------------------------------------------------------------
 
