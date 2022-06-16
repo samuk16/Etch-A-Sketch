@@ -1,13 +1,13 @@
 const containerGrid = document.querySelector('.containerGrid');
 const inputRange = document.querySelectorAll('.inputRange');
-
+const containerInputSize = document.querySelector('.inputSize');
 let valueGrid = 16 ;
 let div =[] ;
-
+let textSizeGrid;
 
 function divsFirst(){
     
-    // let nashe = (valueGrid * valueGrid) - 1
+    
     for(let i = 0; i <= 255;i++){
         div = document.createElement('div');
         div.classList.add('divs');
@@ -17,7 +17,14 @@ function divsFirst(){
 
     }
 }
+
 divsFirst();
+
+
+textSizeGrid = document.createElement('p');
+textSizeGrid.textContent= `${valueGrid} x ${valueGrid}`;
+textSizeGrid.classList.add('text');
+containerInputSize.appendChild(textSizeGrid);
 
 
 function genGrid(){
@@ -39,19 +46,20 @@ function genGrid(){
         
     }
         
-    console.log(valueGrid)
+    
+    textSizeGrid.textContent= `${valueGrid} x ${valueGrid}`;
 }
 
 inputRange.forEach(input => input.addEventListener('change', genGrid));
 
 
+
+
 // -----------------------------------------------------------------------
 
 let color ;
-let colorBack;
+let colorBack= '#FFFFFF';
 const inputColorBack = document.querySelectorAll('.inputColorBack');
-
-const divsColor = document.querySelectorAll('.divs');
 
 const inputColorDiv = document.querySelectorAll('.inputColorDiv');
 
@@ -77,105 +85,15 @@ function changeColorNashe(){
 }
 //------------------------------------------------------------------------------
 
-/*
-containerGrid.addEventListener('mouseover', paintDiv)
-
-function paintDiv(e){
-    const divTarget = e.target;
-
-    divTarget.style.backgroundColor = color;
-}
-*/
-/*
-const inputCheckBox = document.querySelector('.checkBox');
-
-*/
-let colorR ;
-function randomColor(){
-    let simbols = '0123456789ABCDEF';
-    let colorHex='#';
-
-    for(let i = 0;i < 6; i++){
-        colorHex = colorHex + simbols[Math.floor(Math.random()* 16)];
-    }
-
-    colorR = colorHex;
-
-}
 
 
-
-// color= '#000000';
-/*
-const inputCheckBox = document.querySelector('.checkBoxRainbowColor');
-
-inputCheckBox.addEventListener('change', checkBoxPress);
-function checkBoxPress(){
-    if(inputCheckBox.checked){
-
-
-        containerGrid.addEventListener('mouseover', rainbowColor)
-
-        function rainbowColor(e){
-        const divTarget = e.target;
-        let simbols = '0123456789ABCDEF';
-        let colorHex='#';
-
-        for(let i = 0;i < 6; i++){
-            colorHex = colorHex + simbols[Math.floor(Math.random()* 16)];
-        }
-        console.log('encendido');
-        divTarget.style.backgroundColor = colorHex;
-        }
-        
-
-
-    }else{
-
-        containerGrid.addEventListener('mouseover', paintDiv)
-        
-        function paintDiv(e){
-            const divTarget = e.target;
-        
-            divTarget.style.backgroundColor = color;
-        }
-        console.log('noencendido');
-    }
-}
-
-const checkBoxEraser = document.querySelector('.checkBoxEraser');
-const prueba3 = document.querySelector('.nashe');
-checkBoxEraser.addEventListener('change', eraserF);
-
-function eraserF(){
-
-    if(checkBoxEraser.checked){
-    prueba3.addEventListener('click', eraser)
-   
-    function eraser(e){
-        const divTarget = e.target;
-
-        divTarget.style.backgroundColor = colorBack ;
-    }
-    }else{
-
-    }
-    
-}
-
-*/
 
 
 const btns = document.querySelector('.containerBtn');
-const colorModeBtn = document.querySelector('.btnColorMode');
-const rainbowModeBtn = document.querySelector('.btnRainbowMode');
-const eraserBtn = document.querySelector('.btnEraser');
-const gridbtn = document.querySelector('btnGrid');
-
-
-
 
 let drawing = false;
+
+
 
 containerGrid.addEventListener('mousedown', function(e){
     drawing = true;
@@ -183,6 +101,15 @@ containerGrid.addEventListener('mousedown', function(e){
 containerGrid.addEventListener('mouseup', () => {
     drawing = false;
 });
+
+
+const divBot1 = document.querySelector('.div1');
+const divBot2 = document.querySelector('.div2');
+const divBot3 = document.querySelector('.div3');
+const divBot4 = document.querySelector('.div4');
+const divBot5 = document.querySelector('.div5');
+const divBot6 = document.querySelector('.div6');
+
 
 
 btns.addEventListener('click', e =>{
@@ -206,7 +133,15 @@ btns.addEventListener('click', e =>{
             
             
         });
-        
+        divBot1.classList.add('transitionNashe');
+        divBot2.classList.remove('transitionNashe');
+        divBot3.classList.remove('transitionNashe');
+        divBot4.classList.remove('transitionNashe');
+        divBot5.classList.remove('transitionNashe');
+        divBot6.classList.remove('transitionNashe');
+
+
+
 
     }else if(e.target.classList.contains('btnRainbowMode')){
 
@@ -245,8 +180,17 @@ btns.addEventListener('click', e =>{
             }
             
         });
-        
-        
+
+
+        divBot2.classList.add('transitionNashe');
+        divBot1.classList.remove('transitionNashe');
+        divBot3.classList.remove('transitionNashe');
+        divBot4.classList.remove('transitionNashe');
+        divBot5.classList.remove('transitionNashe');
+        divBot6.classList.remove('transitionNashe');
+
+
+
     }else if(e.target.classList.contains('btnEraser')){
 
 
@@ -267,7 +211,15 @@ btns.addEventListener('click', e =>{
               
         });
 
-        
+
+        divBot3.classList.add('transitionNashe');
+        divBot2.classList.remove('transitionNashe');
+        divBot1.classList.remove('transitionNashe');
+        divBot4.classList.remove('transitionNashe');
+        divBot5.classList.remove('transitionNashe');
+        divBot6.classList.remove('transitionNashe');
+
+
     }else if(e.target.classList.contains('btnClear')){
 
         
@@ -286,21 +238,44 @@ btns.addEventListener('click', e =>{
             containerGrid.appendChild(div);
             
         }
-        
-       
+
+
+        divBot4.classList.add('transitionNashe');
+        divBot2.classList.remove('transitionNashe');
+        divBot3.classList.remove('transitionNashe');
+        divBot1.classList.remove('transitionNashe');
+        divBot5.classList.remove('transitionNashe');
+        divBot6.classList.remove('transitionNashe');
+
+
         console.log('clear');
     }else if(e.target.classList.contains('btnGrid')){
 
             
             document.documentElement.style.setProperty('--outlineWid', '.5px');
             document.documentElement.style.setProperty('--outlineSty', 'solid');
-            
+
+
+            divBot5.classList.add('transitionNashe');
+            divBot2.classList.remove('transitionNashe');
+            divBot3.classList.remove('transitionNashe');
+            divBot4.classList.remove('transitionNashe');
+            divBot1.classList.remove('transitionNashe');
+            divBot6.classList.remove('transitionNashe');
             
     }else if(e.target.classList.contains('btnNoGrid')){
 
 
         document.documentElement.style.setProperty('--outlineWid', 0);
         document.documentElement.style.setProperty('--outlineSty', 'none');
+
+
+        divBot6.classList.add('transitionNashe');
+        divBot2.classList.remove('transitionNashe');
+        divBot3.classList.remove('transitionNashe');
+        divBot4.classList.remove('transitionNashe');
+        divBot5.classList.remove('transitionNashe');
+        divBot1.classList.remove('transitionNashe');
 
     }
 
